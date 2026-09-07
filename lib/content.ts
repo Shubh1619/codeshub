@@ -181,7 +181,7 @@ export const caseStudies: CaseStudy[] = [
       "Field-service teams schedule jobs on shared spreadsheets and phone calls. Double-bookings, missed windows, and no live view of technician availability or job history are routine.",
     solution:
       "We built a scheduling platform with drag-and-drop dispatch, GPS-checked technician arrival, automatic re-routing on cancellations, and a customer-facing booking portal. A companion mobile app lets technicians claim jobs and log completion notes from the field.",
-    technology: ["Next.js", "PostgreSQL", "Node.js", "Mapbox", "Redis", "Docker"],
+    technology: ["React", "PostgreSQL", "Node.js", "Mapbox", "Redis", "Docker"],
     result:
       "Dispatch time per job drops from minutes to seconds, double-bookings fall to zero, and technicians regain billable hours every week.",
     accent: "#6d5bff",
@@ -256,8 +256,8 @@ export const caseStudies: CaseStudy[] = [
     problem:
       "Design studios are let down by slow template sites that rank poorly, do nothing to position premium work, and fail to capture qualified leads.",
     solution:
-      "We rebuilt the site as a static-first Next.js project with a case-study portfolio, editorial layouts, and a content model the studio can update itself, with optimized assets served in next-gen formats.",
-    technology: ["Next.js", "Sanity CMS", "Tailwind", "Vercel"],
+      "We rebuilt the site as a static-first React project with a case-study portfolio, editorial layouts, and a content model the studio can update itself, with optimized assets served in next-gen formats.",
+    technology: ["React", "Sanity CMS", "Tailwind", "Vercel"],
     result:
       "Performance scores land in the high 90s, organic traffic grows, and qualified enquiry completions double.",
     accent: "#f59e0b",
