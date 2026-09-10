@@ -109,16 +109,10 @@ export function Footer() {
                 contact@codeshub.in
               </a>
               <a
-                href="tel:+918888184205"
+                href="tel:+917841951305"
                 className="block text-[var(--text-muted)] transition-colors duration-200 hover:text-[var(--color-accent)]"
               >
-                +91 88881 84205
-              </a>
-              <a
-                href="tel:+917517932501"
-                className="block text-[var(--text-muted)] transition-colors duration-200 hover:text-[var(--color-accent)]"
-              >
-                +91 751 793 2501
+                +91 78419 51305
               </a>
             </div>
           </div>

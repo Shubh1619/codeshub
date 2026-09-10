@@ -215,16 +215,10 @@ export default function ContactPage() {
                   </p>
                   <div className="mt-1 flex flex-col">
                     <a
-                      href="tel:+918888184205"
+                      href="tel:+917841951305"
                       className="font-medium text-[var(--text)] transition-colors hover:text-[var(--color-accent)]"
                     >
-                      +91 88881 84205
-                    </a>
-                    <a
-                      href="tel:+917517932501"
-                      className="font-medium text-[var(--text)] transition-colors hover:text-[var(--color-accent)]"
-                    >
-                      +91 751 793 2501
+                      +91 78419 51305
                     </a>
                   </div>
                 </div>
