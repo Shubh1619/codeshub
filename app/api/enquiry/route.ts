@@ -1,4 +1,4 @@
-import { NextResponse } from "next/server";
+import { NextResponse, after } from "next/server";
 
 export async function POST(request: Request) {
   const webAppUrl = process.env.GOOGLE_SHEETS_WEB_APP_URL;
@@ -20,20 +20,18 @@ export async function POST(request: Request) {
     );
   }
 
-  const res = await fetch(webAppUrl, {
-    method: "POST",
-    headers: { "Content-Type": "text/plain;charset=utf-8" },
-    body: JSON.stringify({ token, form }),
-    redirect: "follow",
+  after(async () => {
+    try {
+      await fetch(webAppUrl, {
+        method: "POST",
+        headers: { "Content-Type": "text/plain;charset=utf-8" },
+        body: JSON.stringify({ token, form }),
+        redirect: "follow",
+      });
+    } catch (err) {
+      console.error("Enquiry delivery failed:", err);
+    }
   });
-
-  const data = await res.json().catch(() => null);
-  if (!res.ok || !data?.ok) {
-    return NextResponse.json(
-      { ok: false, error: data?.error || "Failed to send enquiry." },
-      { status: 502 }
-    );
-  }
 
   return NextResponse.json({ ok: true });
 }
