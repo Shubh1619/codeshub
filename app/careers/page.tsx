@@ -12,9 +12,10 @@ import { PositionsBoard, PositionsFallback } from "@/components/positions-board"
 import { openings, hiringSteps } from "@/lib/content";
 
 export const metadata: Metadata = {
-  title: "Careers",
+  title: "Software Internships & Careers in India | Codeshub",
   description:
-    "Build your career at Codeshub - a development agency that ships. Open internship positions in web, Python, JavaScript, app development, AI/ML, and full stack.",
+    "Apply for software development internships in India at Codeshub - project-based learning on real builds with mentorship. Open positions in web, Python, JavaScript, app development, AI/ML and full stack.",
+  alternates: { canonical: "/careers" },
 };
 
 export default function CareersPage() {

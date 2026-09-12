@@ -4,9 +4,10 @@ import { ArrowDownIcon } from "@/components/icons";
 import { ProjectShowcase } from "@/components/project-showcase";
 
 export const metadata: Metadata = {
-  title: "Portfolio",
+  title: "Portfolio & Case Studies | Software Development Company | Codeshub",
   description:
-    "A selection of websites, mobile apps, SaaS platforms and software engineered by Codeshub for real-world use.",
+    "Browse the mobile apps, SaaS platforms, websites and custom software built by Codeshub - with the problems, solutions and measurable outcomes behind each project.",
+  alternates: { canonical: "/portfolio" },
 };
 
 export default function PortfolioPage() {

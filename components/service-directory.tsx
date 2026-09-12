@@ -140,6 +140,15 @@ function ServiceCard({
         {service.description}
       </p>
 
+      <p className="mt-4 flex items-baseline gap-2">
+        <span className="text-xs font-medium uppercase tracking-wider text-[var(--text-faint)]">
+          Starting at
+        </span>
+        <span className="text-sm font-bold text-[var(--color-accent)]">
+          {service.startingAt}
+        </span>
+      </p>
+
       <ul
         className={`flex flex-wrap gap-2 ${
           compact ? "mt-4" : "mt-6"

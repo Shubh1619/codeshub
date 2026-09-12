@@ -1,17 +1,66 @@
 import type { Metadata } from "next";
 import { Container, ButtonLink } from "@/components/ui";
+import { JsonLd } from "@/components/seo";
 import { ServiceStack } from "@/components/service-stack";
 import { ServiceDirectory } from "@/components/service-directory";
+import { ServiceDetails } from "@/components/service-details";
+import { FaqSection } from "@/components/faq";
+import { services, servicesFaqs, siteMeta } from "@/lib/content";
 
 export const metadata: Metadata = {
-  title: "Services",
+  title: "Software Development Services | Web, Mobile, SaaS, AI | Codeshub",
   description:
-    "Custom software, web, mobile, SaaS, PaaS, AI, cloud, and support - engineered by Codeshub to scale with your business.",
+    "Custom software, website, mobile app and SaaS development services in India - with indicative starting rates, use cases, and the technologies we ship with. Fixed-price quotes before we start.",
+  alternates: { canonical: "/services" },
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: servicesFaqs.map((faq) => ({
+    "@type": "Question",
+    name: faq.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: faq.answer,
+    },
+  })),
 };
 
 export default function ServicesPage() {
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "ItemList",
+        itemListElement: services.map((service, index) => ({
+          "@type": "ListItem",
+          position: index + 1,
+          item: {
+            "@type": "Service",
+            name: service.name,
+            description: service.description,
+            serviceType: service.name,
+            provider: {
+              "@type": "Organization",
+              "@id": `${siteMeta.url}/#organization`,
+            },
+            areaServed: "IN",
+            offers: {
+              "@type": "Offer",
+              priceCurrency: "INR",
+              description: `${service.name} starting at ${service.startingAt}`,
+            },
+          },
+        })),
+      },
+    ],
+  };
+
   return (
     <>
+      <JsonLd data={serviceSchema} />
+      <JsonLd data={faqSchema} />
       {/* Hero */}
       <section className="relative overflow-hidden border-b border-[var(--border)]">
         <div
@@ -24,12 +73,14 @@ export default function ServicesPage() {
               Services
             </p>
             <h1 className="heading-display text-3xl text-[var(--text)] sm:text-4xl lg:text-[2.75rem]">
-              Software engineering that takes ownership of the outcome
+              Custom software development in India that takes ownership of the
+              outcome
             </h1>
             <p className="mt-5 max-w-xl text-base leading-relaxed text-[var(--text-muted)] sm:text-lg">
               Whatever you&apos;re building - or whatever&apos;s slowing you down -
               we bring the right stack, honest scoping, and a team that ships.
-              Each engagement is scoped to your problem, not a template.
+              Each engagement is scoped to your problem, not a template, with
+              indicative starting rates below.
             </p>
           </div>
           <ServiceStack />
@@ -37,17 +88,54 @@ export default function ServicesPage() {
       </section>
 
       {/* Directory */}
-      <section className="pb-16 pt-14 sm:pb-20 sm:pt-16">
+      <section className="pb-4 pt-14 sm:pt-16">
         <Container>
           <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
             <h2 className="heading-section text-2xl text-[var(--text)] sm:text-3xl">
-              What we build
+              Our services at a glance
             </h2>
             <p className="text-sm text-[var(--text-muted)]">
               Nine disciplines, one delivery team. Filter to find yours.
             </p>
           </div>
           <ServiceDirectory />
+          <p className="mt-6 text-center text-xs text-[var(--text-faint)]">
+            Indicative starting rates for common starting points. Every
+            engagement is scoped to your problem - you&apos;ll get an exact
+            quote before we start.
+          </p>
+        </Container>
+      </section>
+
+      {/* Deep dive */}
+      <section className="pt-12">
+        <Container>
+          <div className="mx-auto max-w-2xl text-center">
+            <p className="label-eyebrow mb-4 text-xs uppercase tracking-widest text-[var(--color-accent)]">
+              How we work, service by service
+            </p>
+            <h2 className="heading-section text-2xl text-[var(--text)] sm:text-3xl">
+              What each software development service includes
+            </h2>
+          </div>
+          <ServiceDetails />
+        </Container>
+      </section>
+
+      {/* FAQ */}
+      <section className="pb-20 pt-16 sm:pb-24">
+        <Container>
+          <div className="mx-auto max-w-2xl text-center">
+            <p className="label-eyebrow mb-4 text-xs uppercase tracking-widest text-[var(--color-accent)]">
+              Questions
+            </p>
+            <h2 className="heading-section text-2xl text-[var(--text)] sm:text-3xl">
+              Software development pricing & process FAQs
+            </h2>
+          </div>
+          <div className="mt-10">
+            <FaqSection faqs={servicesFaqs} />
+          </div>
         </Container>
       </section>
 

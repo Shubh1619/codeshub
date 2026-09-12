@@ -1,9 +1,45 @@
 "use client";
 
 import { Container, SectionHeading } from "@/components/ui";
+import { JsonLd } from "@/components/seo";
+import { FaqSection } from "@/components/faq";
 import { CheckIcon, ArrowRightIcon } from "@/components/icons";
+import { siteMeta, contactFaqs } from "@/lib/content";
 import type { ChangeEvent, FormEvent, ReactElement, ReactNode } from "react";
 import { isValidElement, cloneElement, useState, useId } from "react";
+
+const contactPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  name: "Contact Codeshub",
+  url: `${siteMeta.url}/contact`,
+  mainEntity: {
+    "@type": "ProfessionalService",
+    "@id": `${siteMeta.url}/#localbusiness`,
+    name: siteMeta.name,
+    url: siteMeta.url,
+    email: siteMeta.email,
+    telephone: siteMeta.phoneIntl,
+    address: {
+      "@type": "PostalAddress",
+      addressCountry: "IN",
+      addressRegion: "India",
+    },
+  },
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: contactFaqs.map((faq) => ({
+    "@type": "Question",
+    name: faq.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: faq.answer,
+    },
+  })),
+};
 
 const helpOptions = [
   "I want to build a product",
@@ -151,6 +187,8 @@ export default function ContactPage() {
 
   return (
     <>
+      <JsonLd data={contactPageSchema} />
+      <JsonLd data={faqSchema} />
       <section className="border-b border-[var(--border)]">
         <Container className="py-16 sm:py-20">
           <SectionHeading
@@ -222,6 +260,9 @@ export default function ContactPage() {
                     </a>
                   </div>
                 </div>
+                <p className="border-t border-[var(--border)] pt-3 text-xs text-[var(--text-faint)]">
+                  Based in {siteMeta.region} · working with clients worldwide.
+                </p>
               </div>
             </div>
 
@@ -429,6 +470,27 @@ export default function ContactPage() {
               </button>
             </div>
           </form>
+        </Container>
+      </section>
+
+      {/* FAQ */}
+      <section className="border-t border-[var(--border)] py-16 sm:py-20">
+        <Container>
+          <div className="mx-auto max-w-2xl text-center">
+            <p className="label-eyebrow mb-4 text-xs uppercase tracking-widest text-[var(--color-accent)]">
+              Questions
+            </p>
+            <h2 className="heading-section text-2xl text-[var(--text)] sm:text-3xl">
+              Before you get in touch
+            </h2>
+            <p className="mt-3 text-sm leading-relaxed text-[var(--text-muted)]">
+              Quick answers on quotes, small projects, existing codebases, and
+              how fast we get back to you.
+            </p>
+          </div>
+          <div className="mt-10">
+            <FaqSection faqs={contactFaqs} />
+          </div>
         </Container>
       </section>
     </>

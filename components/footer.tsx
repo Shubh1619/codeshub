@@ -5,8 +5,9 @@ import { BrandLogo } from "@/components/brand-logo";
 const companyLinks = [
   { label: "Services", href: "/services" },
   { label: "Products", href: "/products" },
-  { label: "Careers", href: "/careers" },
   { label: "Portfolio", href: "/portfolio" },
+  { label: "Blog", href: "/blog" },
+  { label: "Careers", href: "/careers" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -21,23 +22,18 @@ const servicesLinks = [
 const socials = [
   {
     label: "LinkedIn",
-    href: "https://www.linkedin.com/",
+    href: "https://www.linkedin.com/company/codeshubit/",
     icon: <LinkedInIcon />,
   },
   {
-    label: "GitHub",
-    href: "https://github.com/",
-    icon: <GitHubIcon />,
-  },
-  {
     label: "Instagram",
-    href: "https://www.instagram.com/",
+    href: "https://www.instagram.com/codeshub.in/",
     icon: <InstagramIcon />,
   },
   {
-    label: "X",
-    href: "https://x.com/",
-    icon: <XIcon />,
+    label: "Facebook",
+    href: "https://www.facebook.com/profile.php?id=61594363167517",
+    icon: <FacebookIcon />,
   },
 ];
 
@@ -114,6 +110,9 @@ export function Footer() {
               >
                 +91 78419 51305
               </a>
+              <p className="text-[var(--text-faint)]">
+                Software development company in India · working worldwide
+              </p>
             </div>
           </div>
 
@@ -149,7 +148,10 @@ export function Footer() {
         </div>
 
         <div className="mt-14 flex flex-col items-start justify-between gap-3 border-t border-[var(--border)] pt-7 text-sm text-[var(--text-faint)] sm:flex-row sm:items-center">
-          <p>© {new Date().getFullYear()} Codeshub. All rights reserved.</p>
+          <p>
+            © {new Date().getFullYear()} Codeshub · Since 2026 · All rights
+            reserved.
+          </p>
           <p>Built for growth, engineered for scale.</p>
         </div>
       </div>
@@ -165,14 +167,6 @@ function LinkedInIcon() {
   );
 }
 
-function GitHubIcon() {
-  return (
-    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
-    </svg>
-  );
-}
-
 function InstagramIcon() {
   return (
     <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -183,10 +177,10 @@ function InstagramIcon() {
   );
 }
 
-function XIcon() {
+function FacebookIcon() {
   return (
     <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+      <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
     </svg>
   );
 }

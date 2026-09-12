@@ -4,9 +4,10 @@ import { ArrowRightIcon, CheckIcon } from "@/components/icons";
 import { products, type Product } from "@/lib/content";
 
 export const metadata: Metadata = {
-  title: "Products",
+  title: "SaaS Products by Codeshub | LaunchPad, ClientHub, PulseBoard",
   description:
-    "Purpose-built SaaS tools from Codeshub - project delivery tracking for agencies, a white-label client portal, and real-time release monitoring.",
+    "Explore SaaS products built by Codeshub for real workflows - LaunchPad for agency delivery tracking, ClientHub for client handoff, and PulseBoard for uptime monitoring. Live, in production, free trials available.",
+  alternates: { canonical: "/products" },
 };
 
 export default function ProductsPage() {

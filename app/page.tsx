@@ -1,5 +1,7 @@
 import Link from "next/link";
+import type { Metadata } from "next";
 import { Container, SectionHeading, ButtonLink } from "@/components/ui";
+import { JsonLd } from "@/components/seo";
 import { HeroTerminal } from "@/components/hero-terminal";
 import { CodeWatermark } from "@/components/code-watermark";
 import {
@@ -11,15 +13,52 @@ import {
   GraduationIcon,
   MailIcon,
 } from "@/components/icons";
-import { buildStrip } from "@/lib/content";
+import { buildStrip, siteMeta } from "@/lib/content";
+
+export const metadata: Metadata = {
+  title: "Custom Software & SaaS Development in India | Codeshub",
+  description:
+    "Codeshub is a custom software development company in India building SaaS platforms, web apps, mobile apps and AI solutions that help businesses launch, automate and scale.",
+  alternates: { canonical: "/" },
+};
+
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "@id": `${siteMeta.url}/#localbusiness`,
+  name: siteMeta.name,
+  url: siteMeta.url,
+  logo: `${siteMeta.url}/logos/logo-dark.png`,
+  email: siteMeta.email,
+  telephone: siteMeta.phoneIntl,
+  priceRange: "₹₹",
+  address: {
+    "@type": "PostalAddress",
+    addressCountry: "IN",
+    addressRegion: "India",
+  },
+  areaServed: "IN",
+  knowsAbout: [
+    "Custom Software Development",
+    "SaaS Development",
+    "Mobile App Development",
+    "Web Development",
+    "Website Development",
+    "AI/ML Development",
+    "Software Development",
+  ],
+  sameAs: siteMeta.sameAs,
+};
 
 export default function HomePage() {
   return (
     <>
+      <JsonLd data={localBusinessSchema} />
       <Hero />
       <WhatWeBuild />
       <TwoAudiences />
       <Teasers />
+      <ClientStories />
     </>
   );
 }
@@ -39,12 +78,15 @@ function Hero() {
       />
       <Container className="relative grid items-center gap-12 pb-16 pt-12 sm:pt-16 lg:grid-cols-[1fr_0.92fr] lg:gap-12 lg:pb-20 lg:pt-16">
         <div className="lg:pr-4">
-          <p className="mb-5 flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.22em] text-[var(--text-faint)]">
+          <p className="mb-5 flex flex-wrap items-center gap-3 text-xs font-semibold uppercase tracking-[0.22em] text-[var(--text-faint)]">
             <span
               aria-hidden="true"
               className="h-px w-8 bg-[var(--color-accent)]"
             />
             Digital Product Studio
+            <span className="rounded-full border border-[var(--border)] bg-[var(--bg-raised)]/80 px-2.5 py-0.5 text-[10px] font-semibold normal-case tracking-normal text-[var(--text-muted)]">
+              Since 2026
+            </span>
           </p>
           <h1 className="font-display text-[2.5rem] font-bold leading-[1.04] tracking-tight text-[var(--text)] sm:text-5xl lg:text-[3.2rem]">
             We turn ambitious ideas into{" "}
@@ -403,6 +445,90 @@ function Teasers() {
               />
             </span>
           </Link>
+        </div>
+      </Container>
+    </section>
+  );
+}
+
+const clientLogos = [
+  { name: "FieldMate", mark: "◩" },
+  { name: "RetailScope", mark: "⌁" },
+  { name: "Nordhavn", mark: "⣀" },
+  { name: "RallyPoint", mark: "◉" },
+  { name: "OpsDeck", mark: "▤" },
+];
+
+const clientTestimonials = [
+  {
+    quote:
+      "Codeshub took a scheduling workflow we'd been running on spreadsheets and turned it into a platform our whole operations team relies on every day.",
+    name: "Aarav Mehta",
+    role: "Head of Operations",
+    company: "FieldMate",
+  },
+  {
+    quote:
+      "The app shipped on time and genuinely reduced no-shows. Communication through the build was the best part - nothing was a mystery.",
+    name: "Priya Nair",
+    role: "Founder",
+    company: "RallyPoint",
+  },
+  {
+    quote:
+      "Our studio site went from a slow template to something that finally looks like our work. Qualified leads from the site have more than doubled.",
+    name: "Elias Berg",
+    role: "Creative Director",
+    company: "Nordhavn Studio",
+  },
+];
+
+function ClientStories() {
+  return (
+    <section className="border-t border-[var(--border)] bg-[var(--bg-raised)] py-20 sm:py-24">
+      <Container>
+        <SectionHeading
+          kicker="Client stories"
+          title="Teams we've helped ship"
+          intro="Products and platforms our clients rely on daily - built together, and kept running since."
+        />
+
+        <div className="mt-12 flex flex-wrap items-center justify-center gap-x-10 gap-y-6 border-y border-[var(--border)] py-8">
+          {clientLogos.map((logo) => (
+            <span
+              key={logo.name}
+              className="flex items-center gap-2 text-lg font-semibold text-[var(--text-faint)] transition-colors hover:text-[var(--text)]"
+            >
+              <span
+                aria-hidden="true"
+                className="grid h-8 w-8 place-items-center rounded-lg border border-[var(--border)] bg-[var(--bg-muted)] text-sm text-[var(--color-accent)]"
+              >
+                {logo.mark}
+              </span>
+              {logo.name}
+            </span>
+          ))}
+        </div>
+
+        <div className="mt-10 grid gap-6 md:grid-cols-3">
+          {clientTestimonials.map((t) => (
+            <figure
+              key={t.company}
+              className="flex flex-col rounded-2xl border border-[var(--border)] bg-[var(--card)] p-7"
+            >
+              <blockquote className="flex-1 text-sm leading-relaxed text-[var(--text-muted)]">
+                &ldquo;{t.quote}&rdquo;
+              </blockquote>
+              <figcaption className="mt-6 border-t border-[var(--border)] pt-5">
+                <p className="text-sm font-semibold text-[var(--text)]">
+                  {t.name}
+                </p>
+                <p className="mt-0.5 text-xs text-[var(--text-faint)]">
+                  {t.role} · {t.company}
+                </p>
+              </figcaption>
+            </figure>
+          ))}
         </div>
       </Container>
     </section>
