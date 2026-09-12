@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { WhatsAppButton } from "@/components/whatsapp-button";
+import { CursorEffect } from "@/components/cursor-effect";
 import { JsonLd } from "@/components/seo";
 import { siteMeta } from "@/lib/content";
 
@@ -76,6 +77,7 @@ export default function RootLayout({
           <main>{children}</main>
           <Footer />
           <WhatsAppButton />
+          <CursorEffect />
         </ThemeProvider>
       </body>
     </html>

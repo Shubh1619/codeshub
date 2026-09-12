@@ -5,6 +5,7 @@ import { JsonLd } from "@/components/seo";
 import { FaqSection } from "@/components/faq";
 import { CheckIcon, ArrowRightIcon } from "@/components/icons";
 import { siteMeta, contactFaqs } from "@/lib/content";
+import { submitEnquiry } from "@/lib/enquiry";
 import type { ChangeEvent, FormEvent, ReactElement, ReactNode } from "react";
 import { isValidElement, cloneElement, useState, useId } from "react";
 
@@ -107,6 +108,7 @@ export default function ContactPage() {
   const [errors, setErrors] = useState<Errors>({});
   const [submitted, setSubmitted] = useState(false);
   const [sending, setSending] = useState(false);
+  const [sendError, setSendError] = useState("");
 
   const careerPath = CAREER_PATH.has(form.inquiryType);
 
@@ -141,18 +143,36 @@ export default function ContactPage() {
     return next;
   };
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     const errs = validate(form);
     setErrors(errs);
     if (Object.keys(errs).length > 0) return;
     setSending(true);
-    // No backend wired up - simulate the request so the flow is demonstrable.
-    window.setTimeout(() => {
-      setSending(false);
+    setSendError("");
+    try {
+      await submitEnquiry({
+        name: form.name,
+        company: form.company,
+        email: form.email,
+        phone: form.phone,
+        inquiryType: form.inquiryType,
+        position: form.position,
+        budget: form.budget,
+        timeline: form.timeline,
+        message: form.message,
+      });
       setSubmitted(true);
-    }, 900);
-    window.scrollTo({ top: 0, behavior: "smooth" });
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } catch (err) {
+      setSendError(
+        err instanceof Error
+          ? err.message
+          : "Something went wrong sending your enquiry. Please try again."
+      );
+    } finally {
+      setSending(false);
+    }
   };
 
   if (submitted) {
@@ -457,9 +477,16 @@ export default function ContactPage() {
             </div>
 
             <div className="mt-7 flex flex-wrap items-center justify-between gap-4 border-t border-[var(--border)] pt-6">
-              <p className="text-xs text-[var(--text-faint)]">
-                By submitting, you agree to be contacted about your enquiry.
-              </p>
+              <div className="min-w-0">
+                <p className="text-xs text-[var(--text-faint)]">
+                  By submitting, you agree to be contacted about your enquiry.
+                </p>
+                {sendError && (
+                  <p role="alert" className="mt-2 text-xs font-medium text-red-500">
+                    {sendError}
+                  </p>
+                )}
+              </div>
               <button
                 type="submit"
                 disabled={sending}
