@@ -312,6 +312,69 @@ html.has-cursor * {
     0 0 18px color-mix(in srgb, var(--color-accent) 35%, transparent);
 }
 
+/* Ambient particle overlay (snow on dark, embers on light) */
+.ambient-layer {
+  contain: strict;
+}
+
+.snowflake {
+  position: absolute;
+  top: -12px;
+  border-radius: 9999px;
+  background: #ffffff;
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.8);
+  animation-name: snow-fall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: transform, opacity;
+}
+
+.ember {
+  position: absolute;
+  top: 100%;
+  border-radius: 9999px;
+  background: #f59e0b;
+  box-shadow: 0 0 8px rgba(245, 158, 11, 0.75);
+  animation-name: ember-rise;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: transform, opacity, top;
+}
+
+@keyframes snow-fall {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+    opacity: var(--opacity, 0.5);
+  }
+  50% {
+    transform: translate3d(var(--drift, 30px), 50vh, 0) rotate(180deg);
+  }
+  100% {
+    transform: translate3d(calc(var(--drift, 30px) * -0.5), 108vh, 0) rotate(360deg);
+    opacity: var(--opacity, 0.5);
+  }
+}
+
+@keyframes ember-rise {
+  0% {
+    transform: translate3d(0, 0, 0);
+    opacity: var(--opacity, 0.4);
+  }
+  20% {
+    opacity: var(--opacity, 0.4);
+  }
+  50% {
+    transform: translate3d(var(--sway, 40px), -50vh, 0) scale(1);
+  }
+  80% {
+    opacity: var(--opacity, 0.25);
+  }
+  100% {
+    transform: translate3d(calc(var(--sway, 40px) * -0.6), -110vh, 0) scale(0.4);
+    opacity: 0;
+  }
+}
+
 @media (pointer: coarse) {
   html.has-cursor,
   html.has-cursor * {
