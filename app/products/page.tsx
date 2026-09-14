@@ -4,9 +4,9 @@ import { ArrowRightIcon, CheckIcon } from "@/components/icons";
 import { products, type Product } from "@/lib/content";
 
 export const metadata: Metadata = {
-  title: "SaaS Products by Codeshub | LaunchPad, ClientHub, PulseBoard",
+  title: "Products by Codeshub | BkAgro, LaunchPad, ClientHub, PulseBoard",
   description:
-    "Explore SaaS products built by Codeshub for real workflows - LaunchPad for agency delivery tracking, ClientHub for client handoff, and PulseBoard for uptime monitoring. Live, in production, free trials available.",
+    "Explore products built by Codeshub for real workflows - BkAgro for pure nutrition eCommerce, LaunchPad for agency delivery tracking, ClientHub for client handoff, and PulseBoard for uptime monitoring. Live, in production, free trials available.",
   alternates: { canonical: "/products" },
 };
 
@@ -61,6 +61,7 @@ export default function ProductsPage() {
 
 function ProductEcosystem() {
   const items = [
+    { name: "BkAgro", desc: "Pure nutrition store", accent: "#34d399" },
     { name: "LaunchPad", desc: "Agency delivery ops", accent: "#6d5bff" },
     { name: "ClientHub", desc: "Client-facing portal", accent: "#22d3ee" },
     { name: "PulseBoard", desc: "Uptime & releases", accent: "#f472b6" },
@@ -112,7 +113,7 @@ function ProductEcosystem() {
 
         <div className="mt-5 flex items-center justify-between border-t border-[var(--border)] pt-4">
           <span className="font-mono text-[11px] text-[var(--text-faint)]">
-            3 Products · Built · Shipped · Maintained
+            4 Products · Built · Shipped · Maintained
           </span>
           <span className="hidden font-mono text-[11px] text-[var(--text-faint)] sm:block">
             v2.4
@@ -162,9 +163,26 @@ function CapabilityChips({ items }: { items: string[] }) {
 }
 
 function ProductCta({ product }: { product: Product }) {
+  const external = product.href.startsWith("http");
   return (
     <div className="flex flex-wrap items-center gap-4">
-      <ButtonLink href="/contact">{product.cta}</ButtonLink>
+      {external ? (
+        <a
+          href={product.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group inline-flex items-center justify-center gap-2 rounded-xl bg-[var(--color-accent)] px-5 py-3 text-sm font-semibold text-white shadow-[0_12px_30px_-12px_var(--color-accent-glow)] transition-[transform,box-shadow] hover:-translate-y-0.5 hover:shadow-[0_16px_34px_-12px_var(--color-accent-glow)]"
+        >
+          {product.cta}
+          <ArrowRightIcon
+            width={16}
+            height={16}
+            className="transition-transform group-hover:translate-x-0.5"
+          />
+        </a>
+      ) : (
+        <ButtonLink href={product.href}>{product.cta}</ButtonLink>
+      )}
       <a
         href="/contact"
         className="group inline-flex items-center gap-1.5 text-sm font-semibold text-[var(--text-muted)] transition-colors hover:text-[var(--color-accent)]"
@@ -300,6 +318,40 @@ function ProductMockup({
   const shell = `flex flex-col overflow-hidden bg-[#0c0c14] p-5 font-mono text-xs ${
     featured ? "h-72 lg:h-full" : ""
   } ${className}`;
+
+  if (product.slug === "bkagro") {
+    return (
+      <div className={shell} aria-hidden="true">
+        <div className="flex items-center justify-between border-b border-white/10 pb-3">
+          <span className="text-white/50">bkagro - natural nutrition store</span>
+          <HeaderBadge label="live" accent={product.accent} />
+        </div>
+        <div className="mt-4 grid grid-cols-2 gap-3">
+          {[
+            { name: "Pure Honey", price: "₹349", stock: "128 units" },
+            { name: "Flax Seeds", price: "₹210", stock: "87 units" },
+            { name: "Haldi Powder", price: "₹165", stock: "203 units" },
+            { name: "Almonds", price: "₹499", stock: "64 units" },
+          ].map((item, i) => (
+            <div
+              key={i}
+              className="rounded-lg bg-white/[0.04] p-3"
+            >
+              <p className="text-white/80">{item.name}</p>
+              <div className="mt-2 flex items-center justify-between">
+                <span className="text-white/90 font-semibold">{item.price}</span>
+                <span className="text-white/40">{item.stock}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+        <div className="mt-3 flex items-center justify-between rounded-lg bg-white/[0.04] px-3 py-2">
+          <span className="text-white/40">today&apos;s orders</span>
+          <span className="text-white/80">17 orders · ₹12,430</span>
+        </div>
+      </div>
+    );
+  }
 
   if (product.slug === "launchpad") {
     return (

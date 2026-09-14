@@ -254,6 +254,24 @@ export interface Product {
 
 export const products: Product[] = [
   {
+    slug: "bkagro",
+    name: "BkAgro",
+    tagline: "Everyday pure nutrition, straight from the source",
+    problem:
+      "Farm and nutrition brands lose buyers on the web - tedious site builds, weak trust signals, and checkout flows that push people back to phone calls.",
+    features: [
+      "Product catalog with purity & nutrition details",
+      "Fast, mobile-first cart & checkout",
+      "WhatsApp order support",
+      "Story-driven brand pages",
+      "SEO-ready product content",
+    ],
+    tags: ["Live", "eCommerce", "Agro Brand"],
+    accent: "#34d399",
+    cta: "Visit Site",
+    href: "https://bkagro.co.in",
+  },
+  {
     slug: "launchpad",
     name: "LaunchPad",
     tagline: "Project & delivery tracking for client-facing agencies",
