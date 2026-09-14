@@ -9,6 +9,7 @@ export const siteMeta = {
     "https://www.linkedin.com/company/codeshubit/",
     "https://www.instagram.com/codeshub.in/",
     "https://www.facebook.com/profile.php?id=61594363167517",
+    "https://github.com/codeshub-in",
   ],
 };
 
