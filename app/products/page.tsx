@@ -4,7 +4,7 @@ import { ArrowRightIcon, CheckIcon } from "@/components/icons";
 import { products, type Product } from "@/lib/content";
 
 export const metadata: Metadata = {
-  title: "Products by Codeshub | BkAgro, LaunchPad, ClientHub, PulseBoard",
+  title: "SaaS Products for Business Workflows",
   description:
     "Explore products built by Codeshub for real workflows - BkAgro for pure nutrition eCommerce, LaunchPad for agency delivery tracking, ClientHub for client handoff, and PulseBoard for uptime monitoring. Live, in production, free trials available.",
   alternates: { canonical: "/products" },

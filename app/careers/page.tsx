@@ -12,7 +12,7 @@ import { PositionsBoard, PositionsFallback } from "@/components/positions-board"
 import { openings, hiringSteps } from "@/lib/content";
 
 export const metadata: Metadata = {
-  title: "Software Internships & Careers in India | Codeshub",
+  title: "Software Development Internships in India",
   description:
     "Apply for software development internships in India at Codeshub - project-based learning on real builds with mentorship. Open positions in web, Python, JavaScript, app development, AI/ML and full stack.",
   alternates: { canonical: "/careers" },
@@ -33,7 +33,7 @@ export default function CareersPage() {
               Careers
             </p>
             <h1 className="heading-display text-3xl text-[var(--text)] sm:text-4xl lg:text-[2.75rem]">
-              Build your career by building software that matters.
+              Build your software career in India with a project-based internship
             </h1>
             <p className="mt-5 max-w-xl text-base leading-relaxed text-[var(--text-muted)] sm:text-lg">
               We&apos;re looking for curious people who want to work on real
@@ -65,7 +65,7 @@ export default function CareersPage() {
                 Open positions
               </p>
               <h2 className="heading-section mt-2 text-2xl text-[var(--text)] sm:text-3xl">
-                Currently hiring
+                Currently hiring: software internships in India
               </h2>
             </div>
             <p className="text-sm text-[var(--text-muted)]">
@@ -87,7 +87,7 @@ export default function CareersPage() {
                 For students & early-career
               </p>
               <h2 className="heading-section mt-2 text-2xl text-[var(--text)] sm:text-3xl">
-                Internships at Codeshub
+                Project-based internships at Codeshub
               </h2>
               <p className="mt-3 text-base leading-relaxed text-[var(--text-muted)]">
                 Learn by working on real software, with mentorship from

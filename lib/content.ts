@@ -93,7 +93,7 @@ export const services: Service[] = [
   },
   {
     slug: "saas",
-    name: "SaaS Development",
+    name: "SaaS Product Development",
     description:
       "End-to-end subscription products from a thin MVP to a multi-tenant platform with billing and analytics.",
     startingAt: "₹2,50,000",

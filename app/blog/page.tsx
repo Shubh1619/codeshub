@@ -5,7 +5,7 @@ import { ArrowRightIcon } from "@/components/icons";
 import { blogPosts } from "@/lib/content";
 
 export const metadata: Metadata = {
-  title: "Blog | Software Development Insights | Codeshub",
+  title: "Software Development Insights & Guides",
   description:
     "Guides, tutorials and case studies on custom software development, SaaS platforms, mobile apps and AI for business - from the engineering team at Codeshub in India.",
   alternates: { canonical: "/blog" },
@@ -29,9 +29,21 @@ export default function BlogPage() {
             Notes from building software for real businesses
           </h1>
           <p className="mt-5 max-w-xl text-base leading-relaxed text-[var(--text-muted)] sm:text-lg">
-            Pricing guides, technical deep-dives, and honest case studies from
-            the team shipping custom software, SaaS, mobile and AI products in
-            India.
+            Pricing guides, technical deep-dives, and honest{" "}
+            <Link
+              href="/portfolio"
+              className="font-semibold text-[var(--color-accent)] transition-colors hover:text-[var(--color-accent-deep)]"
+            >
+              case studies
+            </Link>{" "}
+            from the team shipping{" "}
+            <Link
+              href="/services"
+              className="font-semibold text-[var(--color-accent)] transition-colors hover:text-[var(--color-accent-deep)]"
+            >
+              custom software
+            </Link>
+            , SaaS, mobile and AI products in India.
           </p>
           <div className="mt-8 flex flex-wrap gap-2">
             {categories.map((category) => (

@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Container, ButtonLink } from "@/components/ui";
 import { ArrowDownIcon } from "@/components/icons";
 import { ProjectShowcase } from "@/components/project-showcase";
 
 export const metadata: Metadata = {
-  title: "Portfolio & Case Studies | Software Development Company | Codeshub",
+  title: "Case Studies — Software & SaaS Projects",
   description:
     "Browse the mobile apps, SaaS platforms, websites and custom software built by Codeshub - with the problems, solutions and measurable outcomes behind each project.",
   alternates: { canonical: "/portfolio" },
@@ -25,11 +26,25 @@ export default function PortfolioPage() {
               Our work
             </p>
             <h1 className="heading-display text-3xl text-[var(--text)] sm:text-4xl lg:text-[2.75rem]">
-              Products, platforms and experiences we&apos;ve built
+              Products, platforms and case studies we&apos;ve built
             </h1>
             <p className="mt-5 max-w-xl text-base leading-relaxed text-[var(--text-muted)] sm:text-lg">
               A selection of websites, mobile apps, SaaS platforms and software
-              we&apos;ve designed and engineered for real-world use.
+              we&apos;ve designed and engineered for real-world use - built on our{" "}
+              <Link
+                href="/services"
+                className="font-semibold text-[var(--color-accent)] transition-colors hover:text-[var(--color-accent-deep)]"
+              >
+                software development services
+              </Link>
+              . Read{" "}
+              <Link
+                href="/blog"
+                className="font-semibold text-[var(--color-accent)] transition-colors hover:text-[var(--color-accent-deep)]"
+              >
+                our development blog
+              </Link>{" "}
+              for the deeper stories.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-3">
               <ButtonLink href="/contact" className="px-6 py-3">
@@ -57,7 +72,7 @@ export default function PortfolioPage() {
         <Container>
           <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
             <h2 className="heading-section text-2xl text-[var(--text)] sm:text-3xl">
-              Selected work
+              Selected work: SaaS development case studies
             </h2>
             <p className="text-sm text-[var(--text-muted)]">
               Six projects across web, mobile, SaaS and AI

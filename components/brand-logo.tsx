@@ -33,7 +33,7 @@ export function BrandLogo({
   return (
     <img
       src={LOGOS[theme]}
-      alt="Codeshub"
+      alt="Codeshub software development company logo"
       width={816}
       height={272}
       className={`block ${className}`}

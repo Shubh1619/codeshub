@@ -141,8 +141,21 @@ export default async function BlogPostPage({
               Building something similar?
             </h2>
             <p className="mt-2 text-sm leading-relaxed text-[var(--text-muted)]">
-              We turn ideas and business problems into custom software, SaaS,
-              mobile apps, and AI solutions - scoped honestly, priced up front.
+              We turn ideas and business problems into{" "}
+              <Link
+                href="/services"
+                className="font-semibold text-[var(--color-accent)] transition-colors hover:text-[var(--color-accent-deep)]"
+              >
+                custom software
+              </Link>
+              ,{" "}
+              <Link
+                href="/portfolio"
+                className="font-semibold text-[var(--color-accent)] transition-colors hover:text-[var(--color-accent-deep)]"
+              >
+                SaaS
+              </Link>
+              , mobile apps, and AI solutions - scoped honestly, priced up front.
               Tell us what you&apos;re working on.
             </p>
             <div className="mt-6">

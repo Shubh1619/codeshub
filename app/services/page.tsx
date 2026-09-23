@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Container, ButtonLink } from "@/components/ui";
 import { JsonLd } from "@/components/seo";
 import { ServiceStack } from "@/components/service-stack";
@@ -8,7 +9,7 @@ import { FaqSection } from "@/components/faq";
 import { services, servicesFaqs, siteMeta } from "@/lib/content";
 
 export const metadata: Metadata = {
-  title: "Software Development Services | Web, Mobile, SaaS, AI | Codeshub",
+  title: "Software, Web, Mobile & SaaS Development Services",
   description:
     "Custom software, website, mobile app and SaaS development services in India - with indicative starting rates, use cases, and the technologies we ship with. Fixed-price quotes before we start.",
   alternates: { canonical: "/services" },
@@ -78,9 +79,23 @@ export default function ServicesPage() {
             </h1>
             <p className="mt-5 max-w-xl text-base leading-relaxed text-[var(--text-muted)] sm:text-lg">
               Whatever you&apos;re building - or whatever&apos;s slowing you down -
-              we bring the right stack, honest scoping, and a team that ships.
-              Each engagement is scoped to your problem, not a template, with
-              indicative starting rates below.
+              we bring the right stack, honest scoping, and a team that ships. Each
+              engagement is scoped to your problem, not a template, with indicative
+              starting rates below. Browse{" "}
+              <Link
+                href="/portfolio"
+                className="font-semibold text-[var(--color-accent)] transition-colors hover:text-[var(--color-accent-deep)]"
+              >
+                SaaS development case studies
+              </Link>{" "}
+              in our portfolio and follow{" "}
+              <Link
+                href="/blog"
+                className="font-semibold text-[var(--color-accent)] transition-colors hover:text-[var(--color-accent-deep)]"
+              >
+                our blog for software development insights
+              </Link>
+              .
             </p>
           </div>
           <ServiceStack />
@@ -92,7 +107,7 @@ export default function ServicesPage() {
         <Container>
           <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
             <h2 className="heading-section text-2xl text-[var(--text)] sm:text-3xl">
-              Our services at a glance
+              Our services at a glance: MVP development &amp; SaaS product development
             </h2>
             <p className="text-sm text-[var(--text-muted)]">
               Nine disciplines, one delivery team. Filter to find yours.
@@ -115,7 +130,8 @@ export default function ServicesPage() {
               How we work, service by service
             </p>
             <h2 className="heading-section text-2xl text-[var(--text)] sm:text-3xl">
-              What each software development service includes
+              What each software development service includes: workflow automation
+              software &amp; AI/ML solutions for businesses
             </h2>
           </div>
           <ServiceDetails />
