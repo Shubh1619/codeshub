@@ -9,7 +9,7 @@ import { FaqSection } from "@/components/faq";
 import { services, servicesFaqs, siteMeta } from "@/lib/content";
 
 export const metadata: Metadata = {
-  title: "Software, Web, Mobile & SaaS Development Services",
+  title: "Software, Web, Mobile & SaaS Development",
   description:
     "Custom software, website, mobile app and SaaS development services in India - with indicative starting rates, use cases, and the technologies we ship with. Fixed-price quotes before we start.",
   alternates: { canonical: "/services" },

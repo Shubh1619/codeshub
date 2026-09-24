@@ -26,7 +26,7 @@ const body = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL(siteMeta.url),
   title: {
-    default: "Custom Software & SaaS Development Company in India | Codeshub",
+    default: "Custom Software & SaaS Development in India | Codeshub",
     template: "%s | Codeshub",
   },
   description:

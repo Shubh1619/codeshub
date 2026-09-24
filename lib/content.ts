@@ -714,7 +714,7 @@ export interface BlogPost {
 export const blogPosts: BlogPost[] = [
   {
     slug: "custom-software-development-cost-india-2026",
-    title: "How Much Does Custom Software Development Cost in India in 2026?",
+    title: "Custom Software Development Cost in India 2026",
     excerpt:
       "Realistic starting prices for websites, web apps, mobile apps, and SaaS in India - and the factors that actually move the number.",
     category: "Business & Pricing",
@@ -729,7 +729,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "saas-development-roadmap-idea-to-multi-tenant",
-    title: "SaaS Development Roadmap: From Idea to Multi-Tenant Platform",
+    title: "SaaS Development Roadmap: Idea to Multi-Tenant",
     excerpt:
       "The architecture and sequencing decisions that turn a SaaS idea into a product that survives its first paying customers.",
     category: "SaaS",
@@ -744,7 +744,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "choosing-mobile-app-development-company",
-    title: "Choosing a Mobile App Development Company: What to Look For",
+    title: "Choosing a Mobile App Development Company",
     excerpt:
       "Seven practical checks before you hire a mobile app team - from portfolios and platform choices to post-launch support.",
     category: "Mobile",
@@ -759,7 +759,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "software-internship-india-guide",
-    title: "How to Land a Software Development Internship in India: A Practical Guide",
+    title: "Software Development Internships in India",
     excerpt:
       "What actually moves the needle when applying for software internships - and how to build a portfolio that gets you a yes.",
     category: "Careers",
@@ -774,7 +774,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "react-native-vs-flutter-2026",
-    title: "React Native vs Flutter: Which Should You Choose in 2026?",
+    title: "React Native vs Flutter 2026: Which to Choose?",
     excerpt:
       "A pragmatic comparison of React Native and Flutter for Indian product teams - hiring, performance, and codebase longevity.",
     category: "Mobile",
@@ -789,7 +789,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "ai-in-business-chatbots-automation-predictive-analytics",
-    title: "AI in Business: Chatbots, Workflow Automation and Predictive Analytics That Pay For Themselves",
+    title: "AI in Business: Chatbots & Workflow Automation",
     excerpt:
       "Where applied AI actually returns money in real businesses - and the three use cases that ship fastest.",
     category: "AI",
@@ -804,7 +804,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "launchpad-delivery-tracking-retrospective",
-    title: "What We Learned Building LaunchPad: A Project Delivery Retrospective",
+    title: "LaunchPad: A Project Delivery Retrospective",
     excerpt:
       "Case study retrospective on LaunchPad - how we scoped, built, and shipped our agency delivery-tracking product.",
     category: "Case Study",
@@ -819,7 +819,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "website-redesign-roi-nordhavn-case-study",
-    title: "Website Redesign ROI: The Nordhavn Studio Case Study",
+    title: "Website Redesign ROI: Nordhavn Case Study",
     excerpt:
       "How rebuilding a slow template site into a fast, editorial portfolio changed lead quality - and what it took to get there.",
     category: "Case Study",

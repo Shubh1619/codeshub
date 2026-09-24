@@ -21,12 +21,15 @@ export function SectionHeading({
   title,
   intro,
   align = "left",
+  as = "h2",
 }: {
   kicker?: string;
   title: ReactNode;
   intro?: ReactNode;
   align?: "left" | "center";
+  as?: "h1" | "h2";
 }) {
+  const Heading = as;
   return (
     <div
       className={
@@ -40,9 +43,9 @@ export function SectionHeading({
           {kicker}
         </p>
       )}
-      <h2 className="heading-section text-3xl sm:text-4xl lg:text-[2.75rem] text-[var(--text)]">
+      <Heading className="heading-section text-3xl sm:text-4xl lg:text-[2.75rem] text-[var(--text)]">
         {title}
-      </h2>
+      </Heading>
       {intro && (
         <p className="mt-5 text-base leading-relaxed text-[var(--text-muted)] sm:text-lg">
           {intro}

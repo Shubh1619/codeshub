@@ -212,6 +212,7 @@ export default function ContactPage() {
       <section className="border-b border-[var(--border)]">
         <Container className="py-16 sm:py-20">
           <SectionHeading
+            as="h1"
             kicker="Contact"
             title="Tell us what you want to build"
             intro="Have an idea, a business problem, or a product that needs engineering? Tell us about it and our team will get back to you."
