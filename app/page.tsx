@@ -18,7 +18,7 @@ import { buildStrip, siteMeta } from "@/lib/content";
 export const metadata: Metadata = {
   title: "Custom Software & SaaS Development Company in India",
   description:
-    "Codeshub is a custom software development company in India building SaaS, web & mobile apps and AI - from MVP development to workflow automation - to help you scale.",
+    "Codeshub is a custom software development company in India building SaaS, web & mobile apps and AI - from MVP development to workflow automation.",
   alternates: { canonical: "/" },
 };
 
